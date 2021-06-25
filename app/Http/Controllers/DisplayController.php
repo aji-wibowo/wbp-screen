@@ -13,12 +13,21 @@ class DisplayController extends Controller
         $lantai = $this->generateArrayLantaiSubMenus();
         $blok = $this->generateArrayMenus();
 
+        $labelBlok = "";
+        $labelLantai = "";
+
         if ($r->blok != null && $r->sel != null) {
             $dataDisplay = DataWbp::getDisplayDataByBlokAndSel($r->blok, $r->sel);
+            $labelBlok = $r->blok;
+            $labelLantai = $r->lantai;
         } else if ($r->blok != null && $r->sel == null) {
             $dataDisplay = DataWbp::getDisplayDataByBlok($r->blok);
+            $labelBlok = $r->blok;
+            $labelLantai = '';
         } else {
             $dataDisplay = DataWbp::getDefaultDisplayData();
+            $labelBlok = 'PAMSUS';
+            $labelLantai = 'TP Tutup Sunyi LT 1/L1';
         }
 
         $jumlahData = count($dataDisplay);
@@ -43,8 +52,8 @@ class DisplayController extends Controller
             'blok' => $blok,
             'dataDisplay' => $row1,
             'lantai' => $lantai,
-            'blokname' => $r->blok != null ? $r->blok : 'PAMSUS',
-            'selname' => $r->sel != null ? $r->sel : 'TP Tutup Sunyi LT 1/L1'
+            'blokname' => $labelBlok,
+            'selname' => $labelLantai
         ];
 
         return view('welcome', $parseData);

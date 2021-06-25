@@ -34,6 +34,18 @@
 
             <ul class="list-unstyled components">
                 <p>Menus</p>
+                <li>
+                    <a href="#lantaiOnly" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">By
+                        Blok</a>
+                    <ul class="collapse list-unstyled" id="lantaiOnly">
+                        @foreach ($blok as $key => $c)
+                            <li>
+                                <a
+                                    href="{{ url('/') }}?blok={{ $key == 'Non Blok' ? '' : $key }}">{{ $key }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
                 @foreach ($blok as $key => $b)
                     <li>
                         <a href="#homeSubmenu{{ str_replace('.', '', str_replace(' ', '', $key)) }}"
