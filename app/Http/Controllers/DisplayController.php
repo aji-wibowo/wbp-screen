@@ -19,7 +19,7 @@ class DisplayController extends Controller
         if ($r->blok != null && $r->sel != null) {
             $dataDisplay = DataWbp::getDisplayDataByBlokAndSel($r->blok, $r->sel);
             $labelBlok = $r->blok;
-            $labelLantai = $r->lantai;
+            $labelLantai = $r->sel;
         } else if ($r->blok != null && $r->sel == null) {
             $dataDisplay = DataWbp::getDisplayDataByBlok($r->blok);
             $labelBlok = $r->blok;
