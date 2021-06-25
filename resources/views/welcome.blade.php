@@ -127,7 +127,7 @@
             </nav>
             <div class="row">
                 <div class="col-md-12">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="5000">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
                         <div class="carousel-inner">
                             <?php $index = 0; ?>
                             @foreach ($dataDisplay as $item)
