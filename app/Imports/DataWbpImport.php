@@ -16,7 +16,6 @@ class DataWbpImport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        ModelsDataWbp::truncate();
         return new ModelsDataWbp([
             'id' => $row['no'],
             'no_reg_instansi' => $row['no_reg_instansi'],

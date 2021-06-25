@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Imports\DataWbpImport;
+use App\Models\DataWbp;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class ImportController extends Controller
 {
@@ -21,6 +23,8 @@ class ImportController extends Controller
      */
     public function import()
     {
+        DataWbp::truncate();
+
         Excel::import(new DataWbpImport, request()->file('file'));
 
         return back();
