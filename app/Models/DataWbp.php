@@ -28,7 +28,7 @@ class DataWbp extends Model
 
     public static function getDefaultDisplayData()
     {
-        return DB::select("select * from data_wbp where lokasi_blok = 'PAMSUS' and lokasi_sel like '%TP Tutup Sunyi LT 1/L1%'");
+        return DB::select("select * from data_wbp");
     }
 
     public static function getDisplayDataByBlokAndSel($blok, $sel)

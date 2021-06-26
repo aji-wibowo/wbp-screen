@@ -108,47 +108,63 @@
                         <span></span>
                         <span></span>
                     </button>
-                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="fas fa-align-justify"></i>
-                    </button>
-                    <div style="width: 100%">
-                        <p class="text-center">{{ $blokname }}</p>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
-                                <p>{{ $selname }}</p>
-                            </li>
-                        </ul>
+                    <div style="margin: auto; margin-left: 27%;" class="text-center">
+                        {{-- <p class="text-center">{{ $blokname }}</p> --}}
+                        <img style="margin: auto; display: block; float: left; margin-top: 5px;" width="70px;"
+                            src="{{ url('/img/logo.png') }}" alt="logo">
+                        {{-- <div style="margin: auto;"> --}}
+                        <p style="margin: 0; float: left; margin-left: 5px;">KEMENTRIAN HUKUM DAN HAK ASASI
+                            MANUSIA RI
+                        </p>
+                        <br>
+                        <p style="margin: 0;float: left; margin-left: 5px;">KANTOR WILAYAH DKI JAKARTA</p>
+                        <p style="margin: 0;float: left; margin-left: 5px;">LEMBAGA PEMASYARAKATAN KELAS IIA SALEMBA
+                        </p>
+                        {{-- </div> --}}
                     </div>
                 </div>
             </nav>
             <div class="row">
                 <div class="col-md-12">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="4000">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="30000">
                         <div class="carousel-inner">
-                            <?php $index = 0; ?>
+                            @php
+                                $index = 0;
+                            @endphp
                             @foreach ($dataDisplay as $item)
                                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
                                     <div class="row">
-                                        @foreach ($item as $i)
+                                        <div class="col-md-12">
+                                            <div class="card p-1 mb-2">
+                                                <div>
+                                                    <p class="ml-2" style="float: left;margin: 0;">
+                                                        {{ $item[0]['nama_blok'] == '' ? 'Non-Blok' : $item[0]['nama_blok'] }}
+                                                    </p>
+                                                    <p class="mr-2" style="float: right;margin: 0;">
+                                                        {{ $item[0]['nama_lantai'] == '' ? 'Non-Sel' : $item[0]['nama_lantai'] }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        @foreach ($item as $u)
                                             <div class="col-md-3 mb-5">
                                                 <div class="card" style="width: 18rem;">
                                                     <img class="card-img-top"
                                                         src="{{ url('img/img_error_backup/not-found.svg') }}">
-                                                    {{-- src="{{ url('img/wbp') }}/{{ $i->foto }}"> --}}
                                                     <div class="card-body">
                                                         <h5 class="card-title" style="min-height: 70px;">
-                                                            {{ $i->nama }}</h5>
-                                                        <p class="card-text">{{ $i->no_reg_instansi }}
+                                                            {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
+                                                        </h5>
+                                                        <p class="card-text">{{ $u['data_wbp']->agama }}
                                                         </p>
-                                                        <p class="card-text">{{ $i->agama }}</p>
+                                                        <p class="card-text">{{ $u['data_wbp']->no_reg_instansi }}
+                                                        </p>
                                                         <p class="card-text">Pidana
-                                                            {{ $i->total_hukuman }}</p>
+                                                            {{ $u['data_wbp']->total_hukuman }}</p>
                                                         <p class="card-text">Eks.
-                                                            {{ $i->tgl_ekspirasi }}</p>
+                                                            {{ $u['data_wbp']->tgl_ekspirasi }}</p>
                                                     </div>
                                                 </div>
                                             </div>

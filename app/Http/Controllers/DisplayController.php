@@ -30,22 +30,36 @@ class DisplayController extends Controller
             $labelLantai = 'TP Tutup Sunyi LT 1/L1';
         }
 
-        $jumlahData = count($dataDisplay);
+        /**
+         * [
+         *   'blok' => [
+         *                  'lantai ruangan' => []
+         *              ]
+         * ]
+         */
+
         $row1 = [];
 
-        if ($jumlahData > 0) {
-            $limit = $jumlahData / 12;
-            $limitFinal = 0;
-            for ($i = 0; $i < $jumlahData; $i++) {
-                if ($limitFinal <= $limit) {
-                    $row1[$limitFinal][] = $dataDisplay[$i];
-                    $limitFinal++;
-                } else {
-                    $limitFinal = 0;
-                }
+        // dd($dataDisplay);
+
+        foreach ($dataDisplay as $key => $item) {
+            if ($item->lokasi_blok != null) {
+                // $row1[$item->lokasi_blok][$item->lokasi_sel][] = $item;
+                $row1[$item->lokasi_blok . $item->lokasi_sel][] = [
+                    'nama_blok' => $item->lokasi_blok,
+                    'nama_lantai' => $item->lokasi_sel,
+                    'data_wbp' => $item
+                ];
+            } else {
+                // $row1['Non-Blok']['Non-Ruangan'][] = $item;
+                $row1[$item->lokasi_blok . $item->lokasi_sel][] = [
+                    'nama_blok' => $item->lokasi_blok,
+                    'nama_lantai' => $item->lokasi_sel,
+                    'data_wbp' => $item
+                ];
             }
         }
-
+        ksort($row1);
         // dd($row1);
 
         $parseData = [
