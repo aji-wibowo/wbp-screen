@@ -44,7 +44,6 @@ class DisplayController extends Controller
 
         foreach ($dataDisplay as $key => $item) {
             if ($item->lokasi_blok != null) {
-                // $row1[$item->lokasi_blok][$item->lokasi_sel][] = $item;
                 $row1[$item->lokasi_blok . $item->lokasi_sel][] = [
                     'nama_blok' => $item->lokasi_blok,
                     'nama_lantai' => $item->lokasi_sel,
@@ -59,12 +58,30 @@ class DisplayController extends Controller
                 ];
             }
         }
+
         ksort($row1);
         // dd($row1);
 
+        foreach ($row1 as $key => $value) {
+            if (count($row1[$key]) > 16) {
+                for ($i = 0; $i < count($row1[$key]); $i++) {
+                    if ($i < 16) {
+                        $row2[$key]['part1'][] = $row1[$key][$i];
+                    } else {
+                        $row2[$key]['part2'][] = $row1[$key][$i];
+                    }
+                }
+            } else {
+                $row2[$key] = $row1[$key];
+            }
+        }
+
+        ksort($row2);
+        // dd($row2);
+
         $parseData = [
             'blok' => $blok,
-            'dataDisplay' => $row1,
+            'dataDisplay' => $row2,
             'lantai' => $lantai,
             'blokname' => $labelBlok,
             'selname' => $labelLantai
