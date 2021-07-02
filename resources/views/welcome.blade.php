@@ -18,6 +18,13 @@
     <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> --}}
 
+    <style>
+        .margin-0 {
+            margin: 0px;
+        }
+
+    </style>
+
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
         integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
@@ -29,7 +36,7 @@
 
 <body>
 
-    <div class="wrapper">
+    <div class="wrapper" style="background-color: white;">
         <!-- Sidebar Holder -->
         <nav id="sidebar" class="active">
             <div class="sidebar-header">
@@ -105,8 +112,16 @@
 
         <!-- Page Content Holder -->
         <div id="content">
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="text-center"
+                style="margin-left: auto; margin-right: auto; display: block; margin-bottom: 10px;">
+                <img width="50%;" src="{{ url('/img/logo.png') }}" alt="logo">
+                {{-- <p style="margin: 0; float: right;">KEMENTRIAN HUKUM DAN HAK ASASI
+                    MANUSIA RI <br> KANTOR WILAYAH DKI JAKARTA <br> LEMBAGA PEMASYARAKATAN KELAS IIA SALEMBA
+                </p>
+                <div class="clearfix"></div> --}}
+            </div>
+            {{-- <div class="clearfix"></div> --}}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding: 0px; margin-bottom: 10px;">
                 <div class="container-fluid">
 
                     <button type="button" id="sidebarCollapse" class="navbar-btn active">
@@ -116,16 +131,15 @@
                     </button>
                     <div style="margin: auto; margin-left: 27%;" class="text-center">
                         {{-- <p class="text-center">{{ $blokname }}</p> --}}
-                        <img style="margin: auto; display: block; float: left; margin-top: 5px;" width="70px;"
+                        {{-- <img style="margin: auto; display: block; float: left; margin-top: 5px;" width="70px;"
                             src="{{ url('/img/logo.png') }}" alt="logo">
-                        {{-- <div style="margin: auto;"> --}}
                         <p style="margin: 0; float: left; margin-left: 5px;">KEMENTRIAN HUKUM DAN HAK ASASI
                             MANUSIA RI
                         </p>
                         <br>
                         <p style="margin: 0;float: left; margin-left: 5px;">KANTOR WILAYAH DKI JAKARTA</p>
                         <p style="margin: 0;float: left; margin-left: 5px;">LEMBAGA PEMASYARAKATAN KELAS IIA SALEMBA
-                        </p>
+                        </p> --}}
                         {{-- </div> --}}
                     </div>
                 </div>
@@ -153,54 +167,50 @@
                                     @if (isset($item['part1']))
                                         <div class="second-slider" style="width: 100%">
                                             <div class="row ini-sec" style="width: 100%;display: inline-flex;">
-                                                @foreach ($item['part1'] as $key => $p)
-                                                    <div class="col-md-3">
-                                                        <div class="card" style="width: 18rem;">
-                                                            <img class="card-img-top"
+                                                @foreach ($item['part1'] as $key => $u)
+                                                    <div class="col-md-3 mb-5 text-center">
+                                                        <div class="card" style="width: 100%; margin: auto">
+                                                            <img class="card-img-top" style="height: 300px"
                                                                 src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                             <div class="card-body">
-                                                                <h5 class="card-title" style="min-height: 70px;">
-                                                                    {{ $p['data_wbp']->nama != null ? $p['data_wbp']->nama : 'ini gada' }}
+                                                                <h5 class="card-title">
+                                                                    {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
                                                                 </h5>
-                                                                <p class="card-text">
-                                                                    {{ $p['data_wbp']->agama }}
+                                                                <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                                 </p>
-                                                                <p class="card-text">
-                                                                    {{ $p['data_wbp']->no_reg_instansi }}
+                                                                <p class="margin-0">
+                                                                    {{ $u['data_wbp']->no_reg_instansi }}
                                                                 </p>
-                                                                <p class="card-text">Pidana
-                                                                    {{ $p['data_wbp']->total_hukuman }}
-                                                                </p>
-                                                                <p class="card-text">Eks.
-                                                                    {{ $p['data_wbp']->tgl_ekspirasi }}
-                                                                </p>
+                                                                <p class="margin-0">Pidana
+                                                                    {{ $u['data_wbp']->total_hukuman }}</p>
+                                                                <p class="margin-0">Eks.
+                                                                    {{ $u['data_wbp']->tgl_ekspirasi }}</p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             </div>
                                             <div class="row ini-sec" style="width: 100%;display: inline-flex;">
-                                                @foreach ($item['part2'] as $key => $p)
+                                                @foreach ($item['part2'] as $key => $u)
                                                     <div class="col-md-3">
-                                                        <div class="card" style="width: 18rem;">
-                                                            <img class="card-img-top"
-                                                                src="{{ url('img/img_error_backup/not-found.svg') }}">
-                                                            <div class="card-body">
-                                                                <h5 class="card-title" style="min-height: 70px;">
-                                                                    {{ $p['data_wbp']->nama != null ? $p['data_wbp']->nama : 'ini gada' }}
-                                                                </h5>
-                                                                <p class="card-text">
-                                                                    {{ $p['data_wbp']->agama }}
-                                                                </p>
-                                                                <p class="card-text">
-                                                                    {{ $p['data_wbp']->no_reg_instansi }}
-                                                                </p>
-                                                                <p class="card-text">Pidana
-                                                                    {{ $p['data_wbp']->total_hukuman }}
-                                                                </p>
-                                                                <p class="card-text">Eks.
-                                                                    {{ $p['data_wbp']->tgl_ekspirasi }}
-                                                                </p>
+                                                        <div class="col-md-3 mb-5 text-center">
+                                                            <div class="card" style="width: 100%; margin: auto">
+                                                                <img class="card-img-top" style="height: 300px"
+                                                                    src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title">
+                                                                        {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
+                                                                    </h5>
+                                                                    <p class="margin-0">{{ $u['data_wbp']->agama }}
+                                                                    </p>
+                                                                    <p class="margin-0">
+                                                                        {{ $u['data_wbp']->no_reg_instansi }}
+                                                                    </p>
+                                                                    <p class="margin-0">Pidana
+                                                                        {{ $u['data_wbp']->total_hukuman }}</p>
+                                                                    <p class="margin-0">Eks.
+                                                                        {{ $u['data_wbp']->tgl_ekspirasi }}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -209,22 +219,22 @@
                                         </div>
                                     @else
                                         @foreach ($item as $u)
-                                            <div class="col-md-3 mb-5">
-                                                <div class="card" style="width: 18rem;">
-                                                    <img class="card-img-top"
-                                                        src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                            <div class="col-md-3 mb-5 text-center">
+                                                <div class="card" style="width: 100%; margin: auto">
+                                                    <img class="card-img-top" style="height: 300px"
+                                                        src="{{ url('img/wbp/contoh_foto.jpeg') }}">
                                                     <div class="card-body">
-                                                        <h5 class="card-title" style="min-height: 70px;">
+                                                        <h5 class="card-title">
                                                             {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
                                                         </h5>
-                                                        <p class="card-text">{{ $u['data_wbp']->agama }}
+                                                        <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                         </p>
-                                                        <p class="card-text">
+                                                        <p class="margin-0">
                                                             {{ $u['data_wbp']->no_reg_instansi }}
                                                         </p>
-                                                        <p class="card-text">Pidana
+                                                        <p class="margin-0">Pidana
                                                             {{ $u['data_wbp']->total_hukuman }}</p>
-                                                        <p class="card-text">Eks.
+                                                        <p class="margin-0">Eks.
                                                             {{ $u['data_wbp']->tgl_ekspirasi }}</p>
                                                     </div>
                                                 </div>
@@ -280,7 +290,7 @@
             });
 
             $(".slider").slick({
-                autoplay: true,
+                autoplay: false,
                 dots: false,
                 autoplaySpeed: 30000,
                 adaptiveHeight: true,
@@ -297,7 +307,7 @@
             });
 
             $(".second-slider").slick({
-                autoplay: true,
+                autoplay: false,
                 dots: false,
                 adaptiveHeight: true,
                 autoplaySpeed: 15000,
