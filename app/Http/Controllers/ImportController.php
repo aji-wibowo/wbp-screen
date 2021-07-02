@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\DataWbpImport;
 use App\Models\DataWbp;
+use Exception;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\VarDumper\Cloner\Data;
@@ -25,8 +26,11 @@ class ImportController extends Controller
     {
         DataWbp::truncate();
 
-        Excel::import(new DataWbpImport, request()->file('file'));
-
-        return back();
+        try {
+            Excel::import(new DataWbpImport, request()->file('file'));
+            return back()->with('status', 'success');
+        } catch (\Throwable $th) {
+            return back()->with('status', 'failure, please use correct import file.');
+        }
     }
 }

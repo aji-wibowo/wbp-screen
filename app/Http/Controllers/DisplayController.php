@@ -40,6 +40,12 @@ class DisplayController extends Controller
 
         $row1 = [];
 
+        $color = [
+            'B' => 'red',
+            'A' => 'blue',
+            'H' => 'green'
+        ];
+
         // dd($dataDisplay);
 
         foreach ($dataDisplay as $key => $item) {
@@ -84,7 +90,8 @@ class DisplayController extends Controller
             'dataDisplay' => $row2,
             'lantai' => $lantai,
             'blokname' => $labelBlok,
-            'selname' => $labelLantai
+            'selname' => $labelLantai,
+            'color' => $color
         ];
 
         return view('welcome', $parseData);

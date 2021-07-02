@@ -19,6 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [DisplayController::class, 'index']);
-Route::get('importExportView', [ImportController::class, 'importExportView']);
+Route::get('/', [DisplayController::class, 'index'])->name('index');
+Route::get('importExportView', [ImportController::class, 'importExportView'])->name('importExportView');
 Route::post('import', [ImportController::class, 'import'])->name('import');

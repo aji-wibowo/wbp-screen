@@ -48,6 +48,9 @@
             <ul class="list-unstyled components">
                 <p>Menus</p>
                 <li>
+                    <a href="{{ route('importExportView') }}">Import CSV</a>
+                </li>
+                <li>
                     <a href="#lantaiOnly" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">By
                         Blok</a>
                     <ul class="collapse list-unstyled" id="lantaiOnly">
@@ -178,7 +181,8 @@
                                                                 </h5>
                                                                 <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                                 </p>
-                                                                <p class="margin-0">
+                                                                <p class="margin-0"
+                                                                    style="color: {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
                                                                     {{ $u['data_wbp']->no_reg_instansi }}
                                                                 </p>
                                                                 <p class="margin-0">Pidana
@@ -203,7 +207,8 @@
                                                                     </h5>
                                                                     <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                                     </p>
-                                                                    <p class="margin-0">
+                                                                    <p class="margin-0"
+                                                                        style="color: {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
                                                                         {{ $u['data_wbp']->no_reg_instansi }}
                                                                     </p>
                                                                     <p class="margin-0">Pidana
@@ -229,7 +234,8 @@
                                                         </h5>
                                                         <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                         </p>
-                                                        <p class="margin-0">
+                                                        <p class="margin-0"
+                                                            style="color: {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
                                                             {{ $u['data_wbp']->no_reg_instansi }}
                                                         </p>
                                                         <p class="margin-0">Pidana
