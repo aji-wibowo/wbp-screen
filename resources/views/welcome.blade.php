@@ -9,14 +9,12 @@
     <title>DisplayWBP-App</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('/css/style5.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style5.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slick-theme.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"> --}}
 
     <style>
         .margin-0 {
@@ -26,12 +24,8 @@
     </style>
 
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-        integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous">
-    </script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-        integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('js/solid.js') }}"></script>
+    <script src="{{ asset('js/fontawesome.js') }}"></script>
 </head>
 
 <body>
@@ -65,7 +59,8 @@
                 @foreach ($blok as $key => $b)
                     <li>
                         <a href="#homeSubmenu{{ str_replace('.', '', str_replace(' ', '', $key)) }}"
-                            data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ $key }}</a>
+                            data-toggle="collapse" aria-expanded="false"
+                            class="dropdown-toggle">{{ $key }}</a>
                         @if ($b != null)
                             <ul class="collapse list-unstyled"
                                 id="homeSubmenu{{ str_replace('.', '', str_replace(' ', '', $key)) }}">
@@ -172,7 +167,7 @@
                                             <div class="row ini-sec" style="width: 100%;display: inline-flex;">
                                                 @foreach ($item['part1'] as $key => $u)
                                                     <div class="col-md-3 mb-5 text-center">
-                                                        <div class="card" style="width: 100%; margin: auto">
+                                                        <div class="card" style="width: 18rem; margin: auto">
                                                             <img class="card-img-top" style="height: 300px"
                                                                 src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                             <div class="card-body">
@@ -198,7 +193,7 @@
                                                 @foreach ($item['part2'] as $key => $u)
                                                     <div class="col-md-3">
                                                         <div class="col-md-3 mb-5 text-center">
-                                                            <div class="card" style="width: 100%; margin: auto">
+                                                            <div class="card" style="width: 18rem; margin: auto">
                                                                 <img class="card-img-top" style="height: 300px"
                                                                     src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                                 <div class="card-body">
@@ -224,8 +219,8 @@
                                         </div>
                                     @else
                                         @foreach ($item as $u)
-                                            <div class="col-md-3 mb-5 text-center">
-                                                <div class="card" style="width: 100%; margin: auto">
+                                            <div class="col-md-3 mb-2 text-center">
+                                                <div class="card" style="width: 18rem; margin: auto">
                                                     <img class="card-img-top" style="height: 300px"
                                                         src="{{ url('img/wbp/contoh_foto.jpeg') }}">
                                                     <div class="card-body">
@@ -266,9 +261,7 @@
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous">
     </script> --}}
     <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous">
-    </script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
     {{-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> --}}
 
@@ -296,7 +289,7 @@
             });
 
             $(".slider").slick({
-                autoplay: false,
+                autoplay: true,
                 dots: false,
                 autoplaySpeed: 30000,
                 adaptiveHeight: true,
@@ -313,7 +306,7 @@
             });
 
             $(".second-slider").slick({
-                autoplay: false,
+                autoplay: true,
                 dots: false,
                 adaptiveHeight: true,
                 autoplaySpeed: 15000,
