@@ -178,7 +178,7 @@
                                                 @foreach ($item['part1'] as $key => $u)
                                                     <div class="col-md-3 mb-5 text-center">
                                                         <div class="card"
-                                                            style="width: 18rem; margin: auto; border: 6px solid {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
+                                                            style="width: 18rem; margin: auto; border: 6px solid {{ $color[$u['data_wbp']->golongan_registrasi] }}">
                                                             <img class="card-img-top" style="height: 300px"
                                                                 src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                             <div class="card-body">
@@ -187,8 +187,7 @@
                                                                 </h5>
                                                                 <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                                 </p>
-                                                                <p class="margin-0"
-                                                                    style="color: {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
+                                                                <p class="margin-0">
                                                                     {{ $u['data_wbp']->no_reg_instansi }}
                                                                 </p>
                                                                 <p class="margin-0">Pidana
@@ -205,7 +204,7 @@
                                                     <div class="col-md-3">
                                                         <div class="col-md-3 mb-5 text-center">
                                                             <div class="card"
-                                                                style="width: 18rem; margin: auto; border: 6px solid {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
+                                                                style="width: 18rem; margin: auto; border: 6px solid {{ $color[$u['data_wbp']->golongan_registrasi] }}">
                                                                 <img class="card-img-top" style="height: 300px"
                                                                     src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                                 <div class="card-body">
@@ -214,8 +213,7 @@
                                                                     </h5>
                                                                     <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                                     </p>
-                                                                    <p class="margin-0"
-                                                                        style="color: {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
+                                                                    <p class="margin-0">
                                                                         {{ $u['data_wbp']->no_reg_instansi }}
                                                                     </p>
                                                                     <p class="margin-0">Pidana
@@ -233,7 +231,7 @@
                                         @foreach ($item as $u)
                                             <div class="col-md-3 mb-2 text-center">
                                                 <div class="card"
-                                                    style="width: 18rem; margin: auto; border: 6px solid {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
+                                                    style="width: 18rem; margin: auto; border: 6px solid {{ $color[$u['data_wbp']->golongan_registrasi] }}">
                                                     <img class="card-img-top" style="height: 300px"
                                                         src="{{ url('img/wbp/contoh_foto.jpeg') }}">
                                                     <div class="card-body">

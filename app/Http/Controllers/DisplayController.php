@@ -41,9 +41,13 @@ class DisplayController extends Controller
         $row1 = [];
 
         $color = [
-            'B' => 'red',
-            'A' => 'blue',
-            'H' => 'green'
+            'PM' => 'red',
+            'AIII' => 'blue',
+            'AIV' => 'green',
+            'AV' => 'orange',
+            'BI' => 'brown',
+            'BIIa' => 'cyan',
+            'BIII' => 'darkmagenta'
         ];
 
         // dd($dataDisplay);
