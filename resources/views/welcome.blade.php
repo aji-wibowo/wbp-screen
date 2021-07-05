@@ -21,6 +21,16 @@
             margin: 0px;
         }
 
+        .footer {
+            height: 100px;
+            background-color: #fafafa;
+        }
+
+        .img {
+            margin: 0 50px;
+            padding: 10px;
+        }
+
     </style>
 
     <!-- Font Awesome JS -->
@@ -109,7 +119,7 @@
         </nav>
 
         <!-- Page Content Holder -->
-        <div id="content">
+        <div id="content" style="margin-bottom: 100px;">
             <div class="text-center"
                 style="margin-left: auto; margin-right: auto; display: block; margin-bottom: 10px;">
                 <img width="50%;" src="{{ url('/img/logo.png') }}" alt="logo">
@@ -167,7 +177,8 @@
                                             <div class="row ini-sec" style="width: 100%;display: inline-flex;">
                                                 @foreach ($item['part1'] as $key => $u)
                                                     <div class="col-md-3 mb-5 text-center">
-                                                        <div class="card" style="width: 18rem; margin: auto">
+                                                        <div class="card"
+                                                            style="width: 18rem; margin: auto; border: 6px solid {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
                                                             <img class="card-img-top" style="height: 300px"
                                                                 src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                             <div class="card-body">
@@ -193,7 +204,8 @@
                                                 @foreach ($item['part2'] as $key => $u)
                                                     <div class="col-md-3">
                                                         <div class="col-md-3 mb-5 text-center">
-                                                            <div class="card" style="width: 18rem; margin: auto">
+                                                            <div class="card"
+                                                                style="width: 18rem; margin: auto; border: 6px solid {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
                                                                 <img class="card-img-top" style="height: 300px"
                                                                     src="{{ url('img/img_error_backup/not-found.svg') }}">
                                                                 <div class="card-body">
@@ -220,7 +232,8 @@
                                     @else
                                         @foreach ($item as $u)
                                             <div class="col-md-3 mb-2 text-center">
-                                                <div class="card" style="width: 18rem; margin: auto">
+                                                <div class="card"
+                                                    style="width: 18rem; margin: auto; border: 6px solid {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
                                                     <img class="card-img-top" style="height: 300px"
                                                         src="{{ url('img/wbp/contoh_foto.jpeg') }}">
                                                     <div class="card-body">
@@ -229,8 +242,7 @@
                                                         </h5>
                                                         <p class="margin-0">{{ $u['data_wbp']->agama }}
                                                         </p>
-                                                        <p class="margin-0"
-                                                            style="color: {{ $color[substr($u['data_wbp']->no_reg_instansi, 0, 1)] }}">
+                                                        <p class="margin-0">
                                                             {{ $u['data_wbp']->no_reg_instansi }}
                                                         </p>
                                                         <p class="margin-0">Pidana
@@ -249,6 +261,14 @@
                 </div>
             </div>
         </div>
+        <footer class="fixed-bottom footer mt-5 container-fluid">
+            <div style="display: block; text-align: center;">
+                <img class="img" src="{{ asset('img/logo1.png') }}" alt="logo1.png" width="10%">
+                <img class="img" src="{{ asset('img/logo2.png') }}" alt="logo2.png" width="10%">
+                <img class="img" src="{{ asset('img/logo3.png') }}" alt="logo3.png" width="8%">
+                <img class="img" src="{{ asset('img/logo4.png') }}" alt="logo4.png" width="10%">
+            </div>
+        </footer>
     </div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
