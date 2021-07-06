@@ -179,8 +179,13 @@
                                                     <div class="col-md-3 mb-5 text-center">
                                                         <div class="card"
                                                             style="width: 18rem; margin: auto; border: 6px solid {{ $color[$u['data_wbp']->golongan_registrasi] }}">
-                                                            <img class="card-img-top" style="height: 300px"
-                                                                src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                                            @if (file_exists(public_path() . '/img/wbp/' . $u['data_wbp']->foto))
+                                                                <img src="{{ url('img/wbp/' . $u['data_wbp']->foto) }}"
+                                                                    alt="">
+                                                            @else
+                                                                <img class="card-img-top" style="height: 300px"
+                                                                    src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                                            @endif
                                                             <div class="card-body">
                                                                 <h5 class="card-title">
                                                                     {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
@@ -205,8 +210,13 @@
                                                         <div class="col-md-3 mb-5 text-center">
                                                             <div class="card"
                                                                 style="width: 18rem; margin: auto; border: 6px solid {{ $color[$u['data_wbp']->golongan_registrasi] }}">
-                                                                <img class="card-img-top" style="height: 300px"
-                                                                    src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                                                @if (file_exists(public_path() . '/img/wbp/' . $u['data_wbp']->foto))
+                                                                    <img src="{{ url('img/wbp/' . $u['data_wbp']->foto) }}"
+                                                                        alt="">
+                                                                @else
+                                                                    <img class="card-img-top" style="height: 300px"
+                                                                        src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                                                @endif
                                                                 <div class="card-body">
                                                                     <h5 class="card-title">
                                                                         {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
@@ -232,8 +242,13 @@
                                             <div class="col-md-3 mb-2 text-center">
                                                 <div class="card"
                                                     style="width: 18rem; margin: auto; border: 6px solid {{ $color[$u['data_wbp']->golongan_registrasi] }}">
-                                                    <img class="card-img-top" style="height: 300px"
-                                                        src="{{ url('img/wbp/contoh_foto.jpeg') }}">
+                                                    @if (file_exists(public_path() . '/img/wbp/' . $u['data_wbp']->foto))
+                                                        <img src="{{ url('img/wbp/' . $u['data_wbp']->foto) }}"
+                                                            alt="">
+                                                    @else
+                                                        <img class="card-img-top" style="height: 300px"
+                                                            src="{{ url('img/img_error_backup/not-found.svg') }}">
+                                                    @endif
                                                     <div class="card-body">
                                                         <h5 class="card-title">
                                                             {{ $u['data_wbp']->nama != null ? $u['data_wbp']->nama : 'ini gada' }}
